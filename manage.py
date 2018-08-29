@@ -5,6 +5,9 @@ from invapi import create_app
 app = create_app()
 manager = Manager(app)
 
+@app.route("/")
+def hello():
+    return "Hi"
 
 def buildmodel():
     generate("invapi/model")
@@ -13,4 +16,5 @@ def buildmodel():
 def runapp():
     app.run()
 
-buildmodel()
+#buildmodel()
+runapp()
