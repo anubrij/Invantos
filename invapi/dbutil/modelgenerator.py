@@ -9,25 +9,43 @@ def writeclass(tablename):
     file = open(__path__ + "/" + tablename + ".py" , 'w')
     print(__path__ + "/" + tablename + ".py")
     file.truncate()
-    file.write("from base import *\n")
+    file.write("from invapi.dbutil.base import *\n")
+    file.write("from flask_restplus import Namespace, fields\n")
     sql = (f"""select TABLE_NAME , COLUMN_NAME , IS_NULLABLE , DATA_TYPE  ,
                             CHARACTER_MAXIMUM_LENGTH , NUMERIC_PRECISION
                             from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '{tablename}'""")
     columns = cursor.execute(sql).fetchall()
     indent1 = 4 * " "
     indent2 = 8 * " "
-    file.write(f"class {tablename}(DbObject):\n\n")
-    file.write(f"{indent1}def __init__(self):\n")
-    file.write(f"{indent2}super({tablename} , self)\n\n")
+    #Model class defination
+    modelClass = f"class {tablename}(DbObject):\n"
+    modelClass += f"{indent1}def __init__(self):\n"
+    modelClass += f"{indent2}super({tablename} , self)\n"
+    modelClass += "{0}"
+    #DTO Class defination
+    modelClass += f"class {tablename}_dto:\n"
+    modelClass += f"#dto class for {tablename}\n"
+    modelClass += f"{indent1}api = Namespace('{tablename}' , description='All the operations related to {tablename}')\n"
+    modelClass += f"{indent1}{tablename} = api.model('{tablename}' "
+    modelClass += ", {1}) \n\n"
+    modelDef = ""
+    dtoDef = ""
+    dtoDef += " {\n"
     for col in columns:
         param = "required=" + ("True" if col[2] == "NO" else "False") + ", type='" + col[3] + "', length=" + (str(col[4]) if col[4] != None else str(col[5]))
-        file.write(f"{indent1}@property\n")
-        file.write(f"{indent1}def {col[1]}(self):\n")
-        file.write(f"{indent2}return self.__{col[1]}__\n\n")
-        file.write(f"{indent1}@{col[1]}.setter\n")
-        file.write(f"{indent1}@DataMember({param})\n")
-        file.write(f"{indent1}def {col[1]}(self , value):\n")
-        file.write(f"{indent2}self.__{col[1]}__ = value\n\n")
+        dtoParam = "required=" + ("True" if col[2] == "NO" else "False") + ", description = 'model column'"
+        modelDef += f"{indent1}@property\n"
+        modelDef += f"{indent1}def {col[1]}(self):\n"
+        modelDef += f"{indent2}return self.__{col[1]}__\n"
+        modelDef += f"{indent1}@{col[1]}.setter\n"
+        modelDef += f"{indent1}@DataMember({param})\n"
+        modelDef += f"{indent1}def {col[1]}(self , value):\n"
+        modelDef += f"{indent2}self.__{col[1]}__ = value\n"
+       
+        dtoDef += f"{indent2}{indent2}'{col[1]}' : fields.String({dtoParam})" + ("," if columns.index(col) != len(columns) - 1 else "") + "\n"
+    dtoDef += f"{indent2}{indent2}"
+    dtoDef += " }"
+    file.write(modelClass.format(modelDef , dtoDef))
     file.close()
 
 def generate(path):
