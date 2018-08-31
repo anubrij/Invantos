@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
 class unit(DbObject):
-    def __init__(self):
-        super(unit , self)
+    def __init__(self , *args, **kwargs):
+        super(unit , self).__init__(*args, **kwargs)
     @property
     def id(self):
         return self.__id__

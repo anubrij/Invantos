@@ -1,3 +1,4 @@
+import inspect
 class DataMember():
     """
     DataMember decorator for model property of model classsself.
@@ -9,7 +10,7 @@ class DataMember():
         self.default.update(args)
     def __call__(self , func):
         def validate(obj , value):
-            if self.default["required"] == True and (value == None or "" + value == ""):
+            if self.default["required"] == True and (value == None or "" + str(value) == ""):
                 raise ValueError("Required field")
             if self.default["length"] > -1 and len(str(value)) > self.default["length"]:
                 raise ValueError("Length of value can not be greater than " + str(self.default["length"]))
@@ -18,11 +19,16 @@ class DataMember():
         return validate
 
 
-class DbObject(object):
-    def __init__(self):
-        super(self)
+class DbObject:
+    def __init__(self ,*args, **kwargs):
+        [setattr(self , p , kwargs[p]) for p in kwargs]
     def getInsert(self):
         return "insert into {0} ({1}) values ({2})".format()
+
+    def getResponse(self):
+        resp = {}
+        props = inspect.getmembers(type(self) , lambda o: isinstance(o, property))
+        return dict([(p[0], getattr(self,p[0])) for p in props])
 
     def create(self):
         pass

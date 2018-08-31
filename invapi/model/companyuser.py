@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
 class companyuser(DbObject):
-    def __init__(self):
-        super(companyuser , self)
+    def __init__(self , *args, **kwargs):
+        super(companyuser , self).__init__(*args, **kwargs)
     @property
     def companyid(self):
         return self.__companyid__

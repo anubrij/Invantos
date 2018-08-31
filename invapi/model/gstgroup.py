@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
 class gstgroup(DbObject):
-    def __init__(self):
-        super(gstgroup , self)
+    def __init__(self , *args, **kwargs):
+        super(gstgroup , self).__init__(*args, **kwargs)
     @property
     def id(self):
         return self.__id__

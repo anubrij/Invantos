@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
 class salebill_product_detail(DbObject):
-    def __init__(self):
-        super(salebill_product_detail , self)
+    def __init__(self , *args, **kwargs):
+        super(salebill_product_detail , self).__init__(*args, **kwargs)
     @property
     def bill_id(self):
         return self.__bill_id__

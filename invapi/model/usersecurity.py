@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
 class usersecurity(DbObject):
-    def __init__(self):
-        super(usersecurity , self)
+    def __init__(self , *args, **kwargs):
+        super(usersecurity , self).__init__(*args, **kwargs)
     @property
     def userid(self):
         return self.__userid__

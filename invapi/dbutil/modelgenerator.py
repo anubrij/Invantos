@@ -19,8 +19,8 @@ def writeclass(tablename):
     indent2 = 8 * " "
     #Model class defination
     modelClass = f"class {tablename}(DbObject):\n"
-    modelClass += f"{indent1}def __init__(self):\n"
-    modelClass += f"{indent2}super({tablename} , self)\n"
+    modelClass += f"{indent1}def __init__(self , *args, **kwargs):\n"
+    modelClass += f"{indent2}super({tablename} , self).__init__(*args, **kwargs)\n"
     modelClass += "{0}"
     #DTO Class defination
     modelClass += f"class {tablename}_dto:\n"
@@ -41,7 +41,7 @@ def writeclass(tablename):
         modelDef += f"{indent1}@DataMember({param})\n"
         modelDef += f"{indent1}def {col[1]}(self , value):\n"
         modelDef += f"{indent2}self.__{col[1]}__ = value\n"
-       
+
         dtoDef += f"{indent2}{indent2}'{col[1]}' : fields.String({dtoParam})" + ("," if columns.index(col) != len(columns) - 1 else "") + "\n"
     dtoDef += f"{indent2}{indent2}"
     dtoDef += " }"
