@@ -1,5 +1,4 @@
 import os
-from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from invapi.dbutil.modelgenerator import generate
 from invapi import InitApp , blueprint

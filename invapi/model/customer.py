@@ -84,16 +84,16 @@ class customer_dto:
 #dto class for customer
     api = Namespace('customer' , description='All the operations related to customer')
     customer = api.model('customer' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'code' : fields.String(required=True, description = 'model column'),
-                'name' : fields.String(required=True, description = 'model column'),
-                'address' : fields.String(required=False, description = 'model column'),
-                'city' : fields.String(required=False, description = 'model column'),
-                'state' : fields.String(required=False, description = 'model column'),
-                'country' : fields.String(required=False, description = 'model column'),
-                'mobile' : fields.String(required=False, description = 'model column'),
-                'tin' : fields.String(required=False, description = 'model column'),
-                'licence' : fields.String(required=False, description = 'model column'),
-                'gst' : fields.String(required=False, description = 'model column')
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'code' : fields.String(required=True, description = 'model column'),
+                        'name' : fields.String(required=True, description = 'model column'),
+                        'address' : fields.String(required=False, description = 'model column'),
+                        'city' : fields.String(required=False, description = 'model column'),
+                        'state' : fields.String(required=False, description = 'model column'),
+                        'country' : fields.String(required=False, description = 'model column'),
+                        'mobile' : fields.String(required=False, description = 'model column'),
+                        'tin' : fields.String(required=False, description = 'model column'),
+                        'licence' : fields.String(required=False, description = 'model column'),
+                        'gst' : fields.String(required=False, description = 'model column')
                  }) 
 

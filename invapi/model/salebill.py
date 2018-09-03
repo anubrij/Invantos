@@ -70,14 +70,14 @@ class salebill_dto:
 #dto class for salebill
     api = Namespace('salebill' , description='All the operations related to salebill')
     salebill = api.model('salebill' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'number' : fields.String(required=True, description = 'model column'),
-                'customer_id' : fields.String(required=True, description = 'model column'),
-                'billdate' : fields.String(required=True, description = 'model column'),
-                'totalitems' : fields.String(required=False, description = 'model column'),
-                'totalamount' : fields.String(required=False, description = 'model column'),
-                'totalprofit' : fields.String(required=False, description = 'model column'),
-                'special_disc' : fields.String(required=False, description = 'model column'),
-                'user_id' : fields.String(required=True, description = 'model column')
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'number' : fields.String(required=True, description = 'model column'),
+                        'customer_id' : fields.String(required=True, description = 'model column'),
+                        'billdate' : fields.String(required=True, description = 'model column'),
+                        'totalitems' : fields.String(required=False, description = 'model column'),
+                        'totalamount' : fields.String(required=False, description = 'model column'),
+                        'totalprofit' : fields.String(required=False, description = 'model column'),
+                        'special_disc' : fields.String(required=False, description = 'model column'),
+                        'user_id' : fields.String(required=True, description = 'model column')
                  }) 
 

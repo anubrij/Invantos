@@ -35,9 +35,9 @@ class productbrand_dto:
 #dto class for productbrand
     api = Namespace('productbrand' , description='All the operations related to productbrand')
     productbrand = api.model('productbrand' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'code' : fields.String(required=True, description = 'model column'),
-                'name' : fields.String(required=True, description = 'model column'),
-                'mr_person_id' : fields.String(required=True, description = 'model column')
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'code' : fields.String(required=True, description = 'model column'),
+                        'name' : fields.String(required=True, description = 'model column'),
+                        'mr_person_id' : fields.String(required=True, description = 'model column')
                  }) 
 

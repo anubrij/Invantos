@@ -77,15 +77,15 @@ class salebill_product_detail_dto:
 #dto class for salebill_product_detail
     api = Namespace('salebill_product_detail' , description='All the operations related to salebill_product_detail')
     salebill_product_detail = api.model('salebill_product_detail' ,  {
-                'bill_id' : fields.String(required=True, description = 'model column'),
-                'product_id' : fields.String(required=True, description = 'model column'),
-                'product_orig_price' : fields.String(required=False, description = 'model column'),
-                'sale_price' : fields.String(required=True, description = 'model column'),
-                'disc' : fields.String(required=False, description = 'model column'),
-                'quantity' : fields.String(required=True, description = 'model column'),
-                'tax' : fields.String(required=False, description = 'model column'),
-                'sgst' : fields.String(required=False, description = 'model column'),
-                'cgst' : fields.String(required=False, description = 'model column'),
-                'finalprice' : fields.String(required=True, description = 'model column')
+                        'bill_id' : fields.String(required=True, description = 'model column'),
+                        'product_id' : fields.String(required=True, description = 'model column'),
+                        'product_orig_price' : fields.String(required=False, description = 'model column'),
+                        'sale_price' : fields.String(required=True, description = 'model column'),
+                        'disc' : fields.String(required=False, description = 'model column'),
+                        'quantity' : fields.String(required=True, description = 'model column'),
+                        'tax' : fields.String(required=False, description = 'model column'),
+                        'sgst' : fields.String(required=False, description = 'model column'),
+                        'cgst' : fields.String(required=False, description = 'model column'),
+                        'finalprice' : fields.String(required=True, description = 'model column')
                  }) 
 

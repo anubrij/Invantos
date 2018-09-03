@@ -35,9 +35,9 @@ class gstgroup_dto:
 #dto class for gstgroup
     api = Namespace('gstgroup' , description='All the operations related to gstgroup')
     gstgroup = api.model('gstgroup' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'name' : fields.String(required=True, description = 'model column'),
-                'cgst' : fields.String(required=False, description = 'model column'),
-                'sgst' : fields.String(required=False, description = 'model column')
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'name' : fields.String(required=True, description = 'model column'),
+                        'cgst' : fields.String(required=False, description = 'model column'),
+                        'sgst' : fields.String(required=False, description = 'model column')
                  }) 
 

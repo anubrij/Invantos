@@ -49,11 +49,11 @@ class usersecurity_dto:
 #dto class for usersecurity
     api = Namespace('usersecurity' , description='All the operations related to usersecurity')
     usersecurity = api.model('usersecurity' ,  {
-                'userid' : fields.String(required=True, description = 'model column'),
-                'password' : fields.String(required=True, description = 'model column'),
-                'secattr1' : fields.String(required=False, description = 'model column'),
-                'secattr2' : fields.String(required=False, description = 'model column'),
-                'secattr3' : fields.String(required=False, description = 'model column'),
-                'date' : fields.String(required=True, description = 'model column')
+                        'userid' : fields.String(required=True, description = 'model column'),
+                        'password' : fields.String(required=True, description = 'model column'),
+                        'secattr1' : fields.String(required=False, description = 'model column'),
+                        'secattr2' : fields.String(required=False, description = 'model column'),
+                        'secattr3' : fields.String(required=False, description = 'model column'),
+                        'date' : fields.String(required=True, description = 'model column')
                  }) 
 

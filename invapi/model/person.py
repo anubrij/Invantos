@@ -49,11 +49,11 @@ class person_dto:
 #dto class for person
     api = Namespace('person' , description='All the operations related to person')
     person = api.model('person' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'name' : fields.String(required=True, description = 'model column'),
-                'address' : fields.String(required=False, description = 'model column'),
-                'mobile' : fields.String(required=False, description = 'model column'),
-                'pan' : fields.String(required=False, description = 'model column'),
-                'adhar' : fields.String(required=False, description = 'model column')
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'name' : fields.String(required=True, description = 'model column'),
+                        'address' : fields.String(required=False, description = 'model column'),
+                        'mobile' : fields.String(required=False, description = 'model column'),
+                        'pan' : fields.String(required=False, description = 'model column'),
+                        'adhar' : fields.String(required=False, description = 'model column')
                  }) 
 

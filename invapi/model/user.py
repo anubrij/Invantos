@@ -2,7 +2,7 @@ from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
 class user(DbObject):
     def __init__(self , *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(user , self).__init__(*args, **kwargs)
     @property
     def id(self):
         return self.__id__
@@ -42,9 +42,10 @@ class user_dto:
 #dto class for user
     api = Namespace('user' , description='All the operations related to user')
     user = api.model('user' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'username' : fields.String(required=True, description = 'model column'),
-                'firstname' : fields.String(required=True, description = 'model column'),
-                'lastname' : fields.String(required=False, description = 'model column'),
-                'email' : fields.String(required=False, description = 'model column')
-                 })
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'username' : fields.String(required=True, description = 'model column'),
+                        'firstname' : fields.String(required=True, description = 'model column'),
+                        'lastname' : fields.String(required=False, description = 'model column'),
+                        'email' : fields.String(required=False, description = 'model column')
+                 }) 
+

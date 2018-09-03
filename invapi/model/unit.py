@@ -21,7 +21,7 @@ class unit_dto:
 #dto class for unit
     api = Namespace('unit' , description='All the operations related to unit')
     unit = api.model('unit' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'name' : fields.String(required=True, description = 'model column')
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'name' : fields.String(required=True, description = 'model column')
                  }) 
 

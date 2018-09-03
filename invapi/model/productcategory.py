@@ -21,7 +21,7 @@ class productcategory_dto:
 #dto class for productcategory
     api = Namespace('productcategory' , description='All the operations related to productcategory')
     productcategory = api.model('productcategory' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'name' : fields.String(required=True, description = 'model column')
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'name' : fields.String(required=True, description = 'model column')
                  }) 
 

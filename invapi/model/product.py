@@ -112,20 +112,20 @@ class product_dto:
 #dto class for product
     api = Namespace('product' , description='All the operations related to product')
     product = api.model('product' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'code' : fields.String(required=True, description = 'model column'),
-                'name' : fields.String(required=True, description = 'model column'),
-                'brand_id' : fields.String(required=True, description = 'model column'),
-                'serial' : fields.String(required=False, description = 'model column'),
-                'batch' : fields.String(required=False, description = 'model column'),
-                'category_id' : fields.String(required=False, description = 'model column'),
-                'unit_id' : fields.String(required=False, description = 'model column'),
-                'gst_group_id' : fields.String(required=False, description = 'model column'),
-                'disc_group_id' : fields.String(required=False, description = 'model column'),
-                'saleprice' : fields.String(required=False, description = 'model column'),
-                'purchaseprice' : fields.String(required=False, description = 'model column'),
-                'sale_constraint_id' : fields.String(required=False, description = 'model column'),
-                'barcode' : fields.String(required=False, description = 'model column'),
-                'special_text' : fields.String(required=False, description = 'model column')
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'code' : fields.String(required=True, description = 'model column'),
+                        'name' : fields.String(required=True, description = 'model column'),
+                        'brand_id' : fields.String(required=True, description = 'model column'),
+                        'serial' : fields.String(required=False, description = 'model column'),
+                        'batch' : fields.String(required=False, description = 'model column'),
+                        'category_id' : fields.String(required=False, description = 'model column'),
+                        'unit_id' : fields.String(required=False, description = 'model column'),
+                        'gst_group_id' : fields.String(required=False, description = 'model column'),
+                        'disc_group_id' : fields.String(required=False, description = 'model column'),
+                        'saleprice' : fields.String(required=False, description = 'model column'),
+                        'purchaseprice' : fields.String(required=False, description = 'model column'),
+                        'sale_constraint_id' : fields.String(required=False, description = 'model column'),
+                        'barcode' : fields.String(required=False, description = 'model column'),
+                        'special_text' : fields.String(required=False, description = 'model column')
                  }) 
 

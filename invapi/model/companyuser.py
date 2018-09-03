@@ -21,7 +21,7 @@ class companyuser_dto:
 #dto class for companyuser
     api = Namespace('companyuser' , description='All the operations related to companyuser')
     companyuser = api.model('companyuser' ,  {
-                'companyid' : fields.String(required=True, description = 'model column'),
-                'userid' : fields.String(required=True, description = 'model column')
+                        'companyid' : fields.String(required=True, description = 'model column'),
+                        'userid' : fields.String(required=True, description = 'model column')
                  }) 
 

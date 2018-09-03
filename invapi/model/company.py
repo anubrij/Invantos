@@ -112,20 +112,19 @@ class company_dto:
 #dto class for company
     api = Namespace('company' , description='All the operations related to company')
     company = api.model('company' ,  {
-                'id' : fields.String(required=True, description = 'model column'),
-                'code' : fields.String(required=True, description = 'model column'),
-                'name' : fields.String(required=True, description = 'model column'),
-                'country_code' : fields.String(required=True, description = 'model column'),
-                'state_code' : fields.String(required=False, description = 'model column'),
-                'city' : fields.String(required=False, description = 'model column'),
-                'address' : fields.String(required=False, description = 'model column'),
-                'zipcode' : fields.String(required=False, description = 'model column'),
-                'mobile' : fields.String(required=False, description = 'model column'),
-                'licence' : fields.String(required=False, description = 'model column'),
-                'tan' : fields.String(required=False, description = 'model column'),
-                'pan' : fields.String(required=False, description = 'model column'),
-                'tin' : fields.String(required=False, description = 'model column'),
-                'cst' : fields.String(required=False, description = 'model column'),
-                'gstin' : fields.String(required=False, description = 'model column')
-                 }) 
-
+                        'id' : fields.String(required=True, description = 'model column'),
+                        'code' : fields.String(required=True, description = 'model column'),
+                        'name' : fields.String(required=True, description = 'model column'),
+                        'country_code' : fields.String(required=True, description = 'model column'),
+                        'state_code' : fields.String(required=False, description = 'model column'),
+                        'city' : fields.String(required=False, description = 'model column'),
+                        'address' : fields.String(required=False, description = 'model column'),
+                        'zipcode' : fields.String(required=False, description = 'model column'),
+                        'mobile' : fields.String(required=False, description = 'model column'),
+                        'licence' : fields.String(required=False, description = 'model column'),
+                        'tan' : fields.String(required=False, description = 'model column'),
+                        'pan' : fields.String(required=False, description = 'model column'),
+                        'tin' : fields.String(required=False, description = 'model column'),
+                        'cst' : fields.String(required=False, description = 'model column'),
+                        'gstin' : fields.String(required=False, description = 'model column')
+                 })

@@ -5,6 +5,7 @@ cnxn = None #connect('DRIVER={SQL Server};SERVER=anubrij-pc\sql17;DATABASE=invdb
 cursor = None #cnxn.cursor()
 __path__ = None
 def writeclass(tablename):
+    tablename = tablename.title()
     print(f"writting class {tablename} to {__path__}")
     file = open(__path__ + "/" + tablename + ".py" , 'w')
     print(__path__ + "/" + tablename + ".py")
@@ -42,7 +43,7 @@ def writeclass(tablename):
         modelDef += f"{indent1}def {col[1]}(self , value):\n"
         modelDef += f"{indent2}self.__{col[1]}__ = value\n"
 
-        dtoDef += f"{indent2}{indent2}'{col[1]}' : fields.String({dtoParam})" + ("," if columns.index(col) != len(columns) - 1 else "") + "\n"
+        dtoDef += f"{indent2}{indent2}{indent2}'{col[1]}' : fields.String({dtoParam})" + ("," if columns.index(col) != len(columns) - 1 else "") + "\n"
     dtoDef += f"{indent2}{indent2}"
     dtoDef += " }"
     file.write(modelClass.format(modelDef , dtoDef))
