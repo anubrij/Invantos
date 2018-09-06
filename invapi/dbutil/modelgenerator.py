@@ -1,9 +1,12 @@
 
 from pyodbc import *
 
+
 cnxn = None #connect('DRIVER={SQL Server};SERVER=anubrij-pc\sql17;DATABASE=invdb;UID=sa;PWD=Qwer1234')
 cursor = None #cnxn.cursor()
 __path__ = None
+
+
 def writeclass(tablename):
     tablename = tablename.title()
     print(f"writting class {tablename} to {__path__}")
@@ -13,7 +16,7 @@ def writeclass(tablename):
     file.write("from invapi.dbutil.base import *\n")
     file.write("from flask_restplus import Namespace, fields\n")
     sql = (f"""select TABLE_NAME , COLUMN_NAME , IS_NULLABLE , DATA_TYPE  ,
-                            CHARACTER_MAXIMUM_LENGTH , NUMERIC_PRECISION
+                            CHARACTER_MAXIMUM_LENGTH , NUMERIC_PRECISION , NUMERIC_SCALE
                             from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '{tablename}'""")
     columns = cursor.execute(sql).fetchall()
     indent1 = 4 * " "
@@ -33,7 +36,7 @@ def writeclass(tablename):
     dtoDef = ""
     dtoDef += " {\n"
     for col in columns:
-        param = "required=" + ("True" if col[2] == "NO" else "False") + ", type='" + col[3] + "', length=" + (str(col[4]) if col[4] != None else str(col[5]))
+        param = "required=" + ("True" if col[2] == "NO" else "False") + ", type=" + col[3] + ", length=" + (str(col[4]) if col[4] != None else str(col[5]))
         dtoParam = "required=" + ("True" if col[2] == "NO" else "False") + ", description = 'model column'"
         modelDef += f"{indent1}@property\n"
         modelDef += f"{indent1}def {col[1]}(self):\n"

@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
-class user(DbObject):
+class User(DbObject):
     def __init__(self , *args, **kwargs):
-        super(user , self).__init__(*args, **kwargs)
+        super(User , self).__init__(*args, **kwargs)
     @property
     def id(self):
         return self.__id__
@@ -38,10 +38,10 @@ class user(DbObject):
     @DataMember(required=False, type='nvarchar', length=100)
     def email(self , value):
         self.__email__ = value
-class user_dto:
-#dto class for user
-    api = Namespace('user' , description='All the operations related to user')
-    user = api.model('user' ,  {
+class User_dto:
+#dto class for User
+    api = Namespace('User' , description='All the operations related to User')
+    User = api.model('User' ,  {
                         'id' : fields.String(required=True, description = 'model column'),
                         'username' : fields.String(required=True, description = 'model column'),
                         'firstname' : fields.String(required=True, description = 'model column'),

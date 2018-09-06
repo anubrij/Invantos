@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
-class product(DbObject):
+class Product(DbObject):
     def __init__(self , *args, **kwargs):
-        super(product , self).__init__(*args, **kwargs)
+        super(Product , self).__init__(*args, **kwargs)
     @property
     def id(self):
         return self.__id__
@@ -108,10 +108,10 @@ class product(DbObject):
     @DataMember(required=False, type='nvarchar', length=200)
     def special_text(self , value):
         self.__special_text__ = value
-class product_dto:
-#dto class for product
-    api = Namespace('product' , description='All the operations related to product')
-    product = api.model('product' ,  {
+class Product_dto:
+#dto class for Product
+    api = Namespace('Product' , description='All the operations related to Product')
+    Product = api.model('Product' ,  {
                         'id' : fields.String(required=True, description = 'model column'),
                         'code' : fields.String(required=True, description = 'model column'),
                         'name' : fields.String(required=True, description = 'model column'),

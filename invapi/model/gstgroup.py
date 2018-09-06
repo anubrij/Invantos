@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
-class gstgroup(DbObject):
+class Gstgroup(DbObject):
     def __init__(self , *args, **kwargs):
-        super(gstgroup , self).__init__(*args, **kwargs)
+        super(Gstgroup , self).__init__(*args, **kwargs)
     @property
     def id(self):
         return self.__id__
@@ -31,10 +31,10 @@ class gstgroup(DbObject):
     @DataMember(required=False, type='numeric', length=5)
     def sgst(self , value):
         self.__sgst__ = value
-class gstgroup_dto:
-#dto class for gstgroup
-    api = Namespace('gstgroup' , description='All the operations related to gstgroup')
-    gstgroup = api.model('gstgroup' ,  {
+class Gstgroup_dto:
+#dto class for Gstgroup
+    api = Namespace('Gstgroup' , description='All the operations related to Gstgroup')
+    Gstgroup = api.model('Gstgroup' ,  {
                         'id' : fields.String(required=True, description = 'model column'),
                         'name' : fields.String(required=True, description = 'model column'),
                         'cgst' : fields.String(required=False, description = 'model column'),

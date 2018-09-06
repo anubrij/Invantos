@@ -22,19 +22,9 @@ class DataMember():
 class DbObject:
     def __init__(self ,*args, **kwargs):
         [setattr(self , p , kwargs[p]) for p in kwargs]
-    def getInsert(self):
-        return "insert into {0} ({1}) values ({2})".format()
-
+        self.__propes__ = inspect.getmembers(type(self) , lambda o: isinstance(o, property))
     def getResponse(self):
         resp = {}
-        props = inspect.getmembers(type(self) , lambda o: isinstance(o, property))
-        return dict([(p[0], getattr(self,p[0])) for p in props])
-
-    def create(self):
-        pass
-    def update(self):
-        pass
-    def read(id):
-        pass
-    def delete(self, id):
-        pass
+        return dict([(p[0], getattr(self,p[0])) for p in self.__propes__])
+        
+   

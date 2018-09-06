@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
-class customer(DbObject):
+class Customer(DbObject):
     def __init__(self , *args, **kwargs):
-        super(customer , self).__init__(*args, **kwargs)
+        super(Customer , self).__init__(*args, **kwargs)
     @property
     def id(self):
         return self.__id__
@@ -80,10 +80,10 @@ class customer(DbObject):
     @DataMember(required=False, type='nvarchar', length=50)
     def gst(self , value):
         self.__gst__ = value
-class customer_dto:
-#dto class for customer
-    api = Namespace('customer' , description='All the operations related to customer')
-    customer = api.model('customer' ,  {
+class Customer_dto:
+#dto class for Customer
+    api = Namespace('Customer' , description='All the operations related to Customer')
+    Customer = api.model('Customer' ,  {
                         'id' : fields.String(required=True, description = 'model column'),
                         'code' : fields.String(required=True, description = 'model column'),
                         'name' : fields.String(required=True, description = 'model column'),

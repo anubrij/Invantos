@@ -29,6 +29,9 @@
     <Compile Include="invapi\controller\accountController.py" />
     <Compile Include="invapi\controller\__init__.py" />
     <Compile Include="invapi\dbutil\base.py" />
+    <Compile Include="invapi\dbutil\dbcontext.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="invapi\dbutil\modelgenerator.py" />
     <Compile Include="invapi\dbutil\__init__.py" />
     <Compile Include="invapi\model\company.py" />

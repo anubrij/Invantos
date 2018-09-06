@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
-class company(DbObject):
+class Company(DbObject):
     def __init__(self , *args, **kwargs):
-        super(company , self).__init__(*args, **kwargs)
+        super(Company , self).__init__(*args, **kwargs)
     @property
     def id(self):
         return self.__id__
@@ -108,10 +108,10 @@ class company(DbObject):
     @DataMember(required=False, type='nvarchar', length=50)
     def gstin(self , value):
         self.__gstin__ = value
-class company_dto:
-#dto class for company
-    api = Namespace('company' , description='All the operations related to company')
-    company = api.model('company' ,  {
+class Company_dto:
+#dto class for Company
+    api = Namespace('Company' , description='All the operations related to Company')
+    Company = api.model('Company' ,  {
                         'id' : fields.String(required=True, description = 'model column'),
                         'code' : fields.String(required=True, description = 'model column'),
                         'name' : fields.String(required=True, description = 'model column'),
@@ -127,4 +127,5 @@ class company_dto:
                         'tin' : fields.String(required=False, description = 'model column'),
                         'cst' : fields.String(required=False, description = 'model column'),
                         'gstin' : fields.String(required=False, description = 'model column')
-                 })
+                 }) 
+

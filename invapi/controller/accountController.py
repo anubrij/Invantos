@@ -1,10 +1,10 @@
-from invapi.model.user import user , user_dto
+from invapi.model.user import User , User_dto
 from flask import request
 from flask_restplus import Resource
 import time
 import json
-api = user_dto.api
-_user = user_dto.user
+api = User_dto.api
+_user = User_dto.User
 users = []
 @api.route('/')
 class UserList(Resource):
@@ -19,7 +19,7 @@ class UserList(Resource):
     def post(self):
         """Creates a new User """
         data = request.json
-        u = user(**data)
+        u = User(**data)
         users.append(u)
         return "User created successfully"
 

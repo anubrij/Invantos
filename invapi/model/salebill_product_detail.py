@@ -1,8 +1,8 @@
 from invapi.dbutil.base import *
 from flask_restplus import Namespace, fields
-class salebill_product_detail(DbObject):
+class Salebill_Product_Detail(DbObject):
     def __init__(self , *args, **kwargs):
-        super(salebill_product_detail , self).__init__(*args, **kwargs)
+        super(Salebill_Product_Detail , self).__init__(*args, **kwargs)
     @property
     def bill_id(self):
         return self.__bill_id__
@@ -73,10 +73,10 @@ class salebill_product_detail(DbObject):
     @DataMember(required=True, type='numeric', length=18)
     def finalprice(self , value):
         self.__finalprice__ = value
-class salebill_product_detail_dto:
-#dto class for salebill_product_detail
-    api = Namespace('salebill_product_detail' , description='All the operations related to salebill_product_detail')
-    salebill_product_detail = api.model('salebill_product_detail' ,  {
+class Salebill_Product_Detail_dto:
+#dto class for Salebill_Product_Detail
+    api = Namespace('Salebill_Product_Detail' , description='All the operations related to Salebill_Product_Detail')
+    Salebill_Product_Detail = api.model('Salebill_Product_Detail' ,  {
                         'bill_id' : fields.String(required=True, description = 'model column'),
                         'product_id' : fields.String(required=True, description = 'model column'),
                         'product_orig_price' : fields.String(required=False, description = 'model column'),
